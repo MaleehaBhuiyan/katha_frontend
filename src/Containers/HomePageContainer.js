@@ -3,7 +3,6 @@ import FeaturedCards from './FeaturedCards'
 
 class HomePageContainer extends React.Component{
     
-    
     FeaturedCards = () => {
         if(this.props.cards === 0)
         {
@@ -11,7 +10,7 @@ class HomePageContainer extends React.Component{
         }
         else
         {
-            return this.props.cards.map(card => <FeaturedCards key={card.id} card={card} />)
+            return this.props.cards.map(card => <FeaturedCards key={card.id} card={card} updateFav={this.props.updateFav} />)
         }
     }
     
@@ -33,6 +32,7 @@ class HomePageContainer extends React.Component{
               <div className="featured">
                   <br/>
                   <h1 id="featuredMain">Featured Cards</h1>
+                  <br/>
                   <div className="cardContainer">
                     {this.FeaturedCards()}
                   </div>
